@@ -1,0 +1,76 @@
+/* ------------------------------------- add scenario form */
+
+.__add_sc_form__ {
+  margin-top: 50px;
+}
+
+.__add_sc_title__ {
+  margin-bottom: 30px;
+}
+
+.__add_sc_main_form__ {
+  background-color: #333333;
+  padding: 20px 70px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15%;
+}
+
+.__sc_add_input__ {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex-grow: 1;
+  font-weight: 500;
+}
+
+.__sc_add_input__ > input {
+  height: 50px;
+  border: 3px solid #3e3e3e;
+  background: #1e1e1e;
+  padding-left: 20px;
+  font-size: 20px;
+  color: white;
+  border-radius: 7px;
+  outline: none;
+}
+
+.__add_sc_form__ > div:last-child {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.__add_sc_form__ button[type="submit"],
+.__add_sc_form__ button[type="button"] {
+  background: #5cb85c;
+  border: none;
+  font-size: 20px;
+  color: white;
+  font-weight: 500;
+  border-radius: 5px;
+  padding: 10px 30px;
+  cursor: pointer;
+}
+
+.__add_sc_form__ button[type="submit"]:hover {
+  background-color: #5cb85cc4;
+}
+
+.__add_sc_form__ button[type="button"]:nth-child(2) {
+  background: #e37933;
+}
+.__add_sc_form__ button[type="button"]:nth-child(2):hover {
+  background: #e37933c4;
+}
+
+.__add_sc_form__ button[type="button"]:nth-child(3) {
+  background: #4a9aba;
+}
+.__add_sc_form__ button[type="button"]:nth-child(3):hover {
+  background: #4a9abae4;
+}

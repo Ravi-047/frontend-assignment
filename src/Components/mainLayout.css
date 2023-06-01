@@ -38,17 +38,6 @@
     rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
-.home_section {
-  position: relative;
-  background: #1e1e1e;
-  height: 100vh;
-  left: 260px;
-  width: calc(100% - 260px);
-  transition: all 0.5s ease;
-  color: white;
-  padding: 10px 10px 10px 25px;
-}
-
 .sidebar.close ~ .home_section {
   left: 78px;
   width: calc(100% - 78px);
@@ -118,4 +107,17 @@
 
 .sidebar .nav_links li:hover {
   background: linear-gradient(to right, #ff7f50, #c0c8d1);
+}
+
+/* ----------------------------------------------------- home section  */
+
+.home_section {
+  position: relative;
+  background: #1e1e1e;
+  height: 100vh;
+  left: 260px;
+  width: calc(100% - 260px);
+  transition: all 0.5s ease;
+  color: white;
+  padding: 15px 10px 10px 25px;
 }

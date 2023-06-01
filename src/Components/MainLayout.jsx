@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useHref } from "react-router-dom";
 
 // importing icon
 import {
@@ -13,8 +13,9 @@ import { FaCar } from "react-icons/fa";
 import "./mainLayout.css";
 
 const MainLayout = () => {
+  const param = useHref();
   const [isSidebarClosed, setIsSidebarClosed] = useState(false);
-  const [isActive, setIsActive] = useState("home");
+  const [isActive, setIsActive] = useState(param);
   const toggleSidebar = () => {
     setIsSidebarClosed(!isSidebarClosed);
   };
@@ -27,12 +28,12 @@ const MainLayout = () => {
     <>
       <div className={`sidebar ${isSidebarClosed ? "close" : ""}`}>
         <div className="side_togge_menu" onClick={toggleSidebar}>
-          {isSidebarClosed ? <AiOutlineMenuFold /> : <AiOutlineMenuUnfold />}
+          {isSidebarClosed ? <AiOutlineMenuUnfold /> : <AiOutlineMenuFold />}
         </div>
         <ul className="nav_links">
           <li
-            className={isActive === "home" ? "active" : ""}
-            onClick={() => handleActive("home")}
+            className={isActive === "/" ? "active" : ""}
+            onClick={() => handleActive("/")}
           >
             <Link to="/">
               <AiFillHome className="icon" />
@@ -40,8 +41,8 @@ const MainLayout = () => {
             </Link>
           </li>
           <li
-            className={isActive === "add-scenario" ? "active" : ""}
-            onClick={() => handleActive("add-scenario")}
+            className={isActive === "/add-scenario" ? "active" : ""}
+            onClick={() => handleActive("/add-scenario")}
           >
             <Link to="/add-scenario">
               <MdLibraryAdd className="icon" />
@@ -49,8 +50,8 @@ const MainLayout = () => {
             </Link>
           </li>
           <li
-            className={isActive === "all-scenario" ? "active" : ""}
-            onClick={() => handleActive("all-scenario")}
+            className={isActive === "/view-scenario" ? "active" : ""}
+            onClick={() => handleActive("/view-scenario")}
           >
             <Link to="/view-scenario">
               <MdViewList className="icon" />
@@ -58,8 +59,8 @@ const MainLayout = () => {
             </Link>
           </li>
           <li
-            className={isActive === "add-vehicle" ? "active" : ""}
-            onClick={() => handleActive("add-vehicle")}
+            className={isActive === "/add-vehicle" ? "active" : ""}
+            onClick={() => handleActive("/add-vehicle")}
           >
             <Link to="/add-vehicle">
               <FaCar className="icon" />
