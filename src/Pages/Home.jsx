@@ -1,10 +1,11 @@
 import React from "react";
+import "../App.css";
 
 const Home = () => {
   return (
-    <div>
+    <section className="home__section">
       <h1>this is Home page</h1>
-    </div>
+    </section>
   );
 };
 
