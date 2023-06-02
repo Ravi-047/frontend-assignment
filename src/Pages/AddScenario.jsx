@@ -1,18 +1,30 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { addScenario } from "../Redux/action";
 
 const AddScenario = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [values, setValues] = useState({
     scenario: "",
     time: "",
+    vehicles: [],
   });
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log(values);
+    const sID = Date.now().toString() + values.scenario;
+    dispatch(addScenario({ ...values, sID })).then((res) => {
+      if (res === 201) {
+        alert("Scenario added successfully");
+      } else {
+        alert("Something went wrong");
+      }
+    });
     setValues({
       scenario: "",
       time: "",
+      vehicles: [],
     });
   };
 
@@ -40,8 +52,9 @@ const AddScenario = () => {
         <h1 className="__add_sc_title__">Add Scenario</h1>
         <div className="__add_sc_main_form__">
           <div className="__sc_add_input__">
-            <label htmlFor="">Scenario Name</label>
+            <label htmlFor="sname">Scenario Name</label>
             <input
+              id="sname"
               type="text"
               placeholder="Test Scenario"
               name="scenario"
@@ -52,8 +65,9 @@ const AddScenario = () => {
           </div>
 
           <div className="__sc_add_input__">
-            <label htmlFor="">Scenario Time (seconds)</label>
+            <label htmlFor="stime">Scenario Time (seconds)</label>
             <input
+              id="stime"
               type="text"
               placeholder="10"
               name="time"

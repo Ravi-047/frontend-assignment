@@ -1,16 +1,11 @@
 {
   "scenarios": [
     {
-      "id": 1,
-      "name": "Scenario 1",
-      "time": "12:00 PM",
-      "vehicles": [1, 2, 3]
-    },
-    {
-      "id": 2,
-      "name": "Scenario 2",
-      "time": "2:30 PM",
-      "vehicles": [4, 5]
+      "scenario": "scenario 1",
+      "time": "6",
+      "vehicles": [],
+      "sID": "1685715578787scenario 1",
+      "id": 1
     }
   ],
   "vehicles": [
