@@ -15,6 +15,7 @@
   margin-bottom: 30px;
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 15%;
@@ -198,4 +199,17 @@ td._data_sc_view_name_ {
   color: white;
   padding: 2px 3px;
   cursor: pointer;
+}
+
+/* ------------------------------------------------------------------------- adding vehichle  */
+
+.__add_sc_main_form__vehicle {
+  background-color: #333333;
+  padding: 20px 35px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10%;
+  row-gap: 30px;
 }
