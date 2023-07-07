@@ -3,51 +3,29 @@
     {
       "scenario": "scenario 1",
       "time": "6",
-      "vehicles": [],
+      "vehicles": 0,
       "sID": "1685715578787scenario 1",
       "id": 1
     }
   ],
   "vehicles": [
     {
-      "id": 1,
-      "name": "Vehicle 1",
-      "initialPositionX": 100,
-      "initialPositionY": 200,
-      "speed": 50,
-      "direction": "Towards"
+      "name": "vehicle 1",
+      "speed": "20",
+      "initialPositionX": "400",
+      "initialPositionY": "200",
+      "direction": "Towards",
+      "sID": "1685715578787scenario 1",
+      "id": 1
     },
     {
-      "id": 2,
-      "name": "Vehicle 2",
-      "initialPositionX": 150,
-      "initialPositionY": 250,
-      "speed": 60,
-      "direction": "Backwards"
-    },
-    {
-      "id": 3,
-      "name": "Vehicle 3",
-      "initialPositionX": 200,
-      "initialPositionY": 300,
-      "speed": 70,
-      "direction": "Upwards"
-    },
-    {
-      "id": 4,
-      "name": "Vehicle 4",
-      "initialPositionX": 250,
-      "initialPositionY": 350,
-      "speed": 80,
-      "direction": "Downwards"
-    },
-    {
-      "id": 5,
-      "name": "Vehicle 5",
-      "initialPositionX": 300,
-      "initialPositionY": 400,
-      "speed": 90,
-      "direction": "Towards"
+      "name": "vehicle 2",
+      "speed": "60",
+      "initialPositionX": "500",
+      "initialPositionY": "300",
+      "direction": "Upwards",
+      "sID": "1685715578787scenario 1",
+      "id": 2
     }
   ]
 }

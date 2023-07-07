@@ -29,15 +29,17 @@
   font-weight: 500;
 }
 
-.__sc_add_input__ > input {
+.__sc_add_input__ > input,
+select {
   height: 50px;
   border: 3px solid #3e3e3e;
   background: #1e1e1e;
-  padding-left: 20px;
-  font-size: 20px;
+  padding-left: 10px;
+  font-size: 19px;
   color: white;
   border-radius: 7px;
   outline: none;
+  text-transform: capitalize;
 }
 
 .__add_sc_form__ > div:last-child {
@@ -212,4 +214,11 @@ td._data_sc_view_name_ {
   grid-template-columns: repeat(3, 1fr);
   gap: 10%;
   row-gap: 30px;
+}
+
+.information_postion {
+  font-weight: 300;
+  font-size: 13px;
+  padding-left: 3px;
+  color: #ff7f50;
 }

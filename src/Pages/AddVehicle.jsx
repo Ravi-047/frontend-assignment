@@ -1,32 +1,50 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../App.css";
-import { addScenario } from "../Redux/action";
+
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getScenario } from "../Redux/scenario/action";
+import { addVehicle } from "../Redux/vehicles/action.Vehicle";
 
 const AddVehicle = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [selectScenario, setSelectScenario] = useState("");
   const [values, setValues] = useState({
-    scenario: "",
-    time: "",
-    vehicles: [],
+    name: "",
+    speed: "",
+    initialPositionX: "",
+    initialPositionY: "",
+    direction: "",
   });
+
+  const { scenario } = useSelector((state) => state.scenarioReducer);
+
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    const sID = Date.now().toString() + values.scenario;
-    dispatch(addScenario({ ...values, sID })).then((res) => {
+    let selectedUser = scenario.find(
+      (item) => item.scenario === selectScenario
+    );
+    const sID = selectedUser.sID;
+    const vehicleData = {
+      ...values,
+      sID,
+    };
+    dispatch(addVehicle(vehicleData)).then((res) => {
       if (res === 201) {
-        alert("Scenario added successfully");
+        alert("Vehicle added successfully");
       } else {
         alert("Something went wrong");
       }
     });
     setValues({
-      scenario: "",
-      time: "",
-      vehicles: [],
+      name: "",
+      speed: "",
+      initialPositionX: "",
+      initialPositionY: "",
+      direction: "",
     });
+    setSelectScenario("");
   };
 
   const handleInputChange = (event) => {
@@ -36,14 +54,23 @@ const AddVehicle = () => {
 
   const handleReset = () => {
     setValues({
-      scenario: "",
-      time: "",
+      name: "",
+      speed: "",
+      initialPositionX: "",
+      initialPositionY: "",
+      direction: "",
     });
+    setSelectScenario("");
   };
 
   const handeBack = () => {
     navigate(-1);
   };
+
+  useEffect(() => {
+    dispatch(getScenario());
+  }, [dispatch]);
+
   return (
     <section>
       <p className="__add_scenario_navigation__">Vehicle / add</p>
@@ -52,81 +79,92 @@ const AddVehicle = () => {
         <h1 className="__add_sc_title__">Add Vehicle</h1>
         <div className="__add_sc_main_form__vehicle">
           <div className="__sc_add_input__">
-            <label htmlFor="sname">Scenario List</label>
+            <label htmlFor="slist">Scenario List</label>
+            <select
+              name="list"
+              id="slist"
+              value={selectScenario}
+              onChange={(event) => setSelectScenario(event.target.value)}
+            >
+              <option value="">Select Scenario</option>
+              {scenario?.map((item) => (
+                <option key={item.sID}>{item.scenario}</option>
+              ))}
+            </select>
+          </div>
+
+          <div className="__sc_add_input__">
+            <label htmlFor="vname">Vehicle Name</label>
             <input
-              id="sname"
+              id="vname"
               type="text"
-              placeholder="Test Scenario"
-              name="scenario"
-              value={values.scenario}
+              placeholder="Vehicle Name"
+              name="name"
+              value={values.name}
               required
               onChange={handleInputChange}
             />
           </div>
 
           <div className="__sc_add_input__">
-            <label htmlFor="stime">Vehicle Name</label>
+            <label htmlFor="vspeed">Speed</label>
             <input
-              id="stime"
+              id="vspeed"
               type="text"
-              placeholder="10"
-              name="time"
-              value={values.time}
+              placeholder="2"
+              name="speed"
+              value={values.speed}
               required
               onChange={handleInputChange}
             />
           </div>
 
           <div className="__sc_add_input__">
-            <label htmlFor="stime">Speed</label>
+            <label htmlFor="vpx">Position X</label>
             <input
-              id="stime"
+              id="vpx"
               type="text"
-              placeholder="10"
-              name="time"
-              value={values.time}
+              placeholder="200"
+              name="initialPositionX"
+              value={values.initialPositionX}
               required
               onChange={handleInputChange}
             />
+            <p className="information_postion">
+              should not be &gt; 800 and &lt; 0
+            </p>
           </div>
 
           <div className="__sc_add_input__">
-            <label htmlFor="sname">Position X</label>
+            <label htmlFor="vpy">Position Y</label>
             <input
-              id="sname"
+              id="vpy"
               type="text"
-              placeholder="Test Scenario"
-              name="scenario"
-              value={values.scenario}
+              placeholder="20"
+              name="initialPositionY"
+              value={values.initialPositionY}
               required
               onChange={handleInputChange}
             />
+            <p className="information_postion">
+              should not be &gt; 800 and &lt; 0
+            </p>
           </div>
 
           <div className="__sc_add_input__">
-            <label htmlFor="sname">Position Y</label>
-            <input
-              id="sname"
-              type="text"
-              placeholder="Test Scenario"
-              name="scenario"
-              value={values.scenario}
-              required
+            <label htmlFor="dir">Direction</label>
+            <select
+              name="direction"
+              id="dir"
+              value={values.direction}
               onChange={handleInputChange}
-            />
-          </div>
-
-          <div className="__sc_add_input__">
-            <label htmlFor="sname">Direction</label>
-            <input
-              id="sname"
-              type="text"
-              placeholder="Test Scenario"
-              name="scenario"
-              value={values.scenario}
-              required
-              onChange={handleInputChange}
-            />
+            >
+              <option value="">Select Direction</option>
+              <option value="Towards">Towards</option>
+              <option value="Backwards">Backwards</option>
+              <option value="Upwards">Upwards</option>
+              <option value="Downwards">Downwards</option>
+            </select>
           </div>
         </div>
 

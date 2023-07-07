@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "../App.css";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteScenario, getScenario, updateScenario } from "../Redux/action";
 
 import { RiAddBoxFill } from "react-icons/ri";
 import { AiFillEdit, AiTwotoneDelete } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import {
+  deleteScenario,
+  getScenario,
+  updateScenario,
+} from "../Redux/scenario/action";
 
 const ViewScenario = () => {
   const dispatch = useDispatch();
@@ -102,7 +106,7 @@ const ViewScenario = () => {
                       `${item?.time}s`
                     )}
                   </td>
-                  <td>{item?.vehicles?.length}</td>
+                  <td>{item?.vehicles}</td>
                   <td>
                     <button className="_actions_sc_button_">
                       <RiAddBoxFill className="_sc_action_icon_" />

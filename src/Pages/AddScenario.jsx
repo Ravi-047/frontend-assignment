@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { addScenario } from "../Redux/action";
+import { addScenario } from "../Redux/scenario/action";
 
 const AddScenario = () => {
   const navigate = useNavigate();
@@ -9,7 +9,7 @@ const AddScenario = () => {
   const [values, setValues] = useState({
     scenario: "",
     time: "",
-    vehicles: [],
+    vehicles: 0,
   });
   const handleFormSubmit = (event) => {
     event.preventDefault();
@@ -24,7 +24,7 @@ const AddScenario = () => {
     setValues({
       scenario: "",
       time: "",
-      vehicles: [],
+      vehicles: 0,
     });
   };
 
