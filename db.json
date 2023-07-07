@@ -26,6 +26,15 @@
       "direction": "Upwards",
       "sID": "1685715578787scenario 1",
       "id": 2
+    },
+    {
+      "name": "Ravi Ranjan",
+      "speed": "2",
+      "initialPositionX": "200",
+      "initialPositionY": "400",
+      "direction": "",
+      "sID": "1685715578787scenario 1",
+      "id": 3
     }
   ]
 }

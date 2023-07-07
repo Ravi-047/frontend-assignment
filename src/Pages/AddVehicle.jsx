@@ -25,7 +25,11 @@ const AddVehicle = () => {
     let selectedUser = scenario.find(
       (item) => item.scenario === selectScenario
     );
-    const sID = selectedUser.sID;
+    const sID = selectedUser?.sID;
+    if (!sID) {
+      alert("Please select a scenario");
+      return;
+    }
     const vehicleData = {
       ...values,
       sID,

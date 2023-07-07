@@ -23,7 +23,7 @@ const vehicleReducer = (state = initialState, action) => {
             return { ...state, isLoading: false, isError: true }
         }
 
-        // add scenario 
+        // add VEHICLE 
         case types.ADD_VEHICLE_REQUEST: {
             return { ...state, isLoading: true, isError: false };
         }
@@ -34,7 +34,7 @@ const vehicleReducer = (state = initialState, action) => {
             return { ...state, isLoading: false, isError: true }
         }
 
-        // update Scenario
+        // update VEHICLE
         case types.UPDATE_VEHICLE_REQUEST: {
             return { ...state, isLoading: true, isError: false }
         }
@@ -48,7 +48,7 @@ const vehicleReducer = (state = initialState, action) => {
             return { ...state, isLoading: false, isError: true }
         }
 
-        // delete scenario
+        // delete VEHICLE
         case types.DELETE_VEHICLE_REQUEST: {
             return { ...state, isLoading: true, isError: false }
         }
